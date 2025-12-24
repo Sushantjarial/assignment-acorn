@@ -8,15 +8,18 @@ import { ChevronDown } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-screen ">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1   flex flex-col overflow-hidden">
         <Header />
-        <SubHeader />
 
+        <div className="bg-sidebar ">
+
+        <SubHeader />
+    </div>
         {/* Page Title */}
         <div className="px-5 pb-3 flex justify-between ">
           <h1 className="text-2xl font-medium text-muted-foreground">
@@ -36,11 +39,35 @@ const Index = () => {
 
 
         {/* Dashboard Grid */}
-        <main className="flex-1 overflow-y-auto px-5 pb-5">
+        <main className="flex-1  px-5 pb-5">
           <div className="grid grid-cols-[1fr_320px] gap-4">
             {/* Left Column */}
             <div className="space-y-4">
               <RevenueCard />
+
+      {/* Platform Stats Row */}
+ {/* <div className="flex items-center gap-4 pt-4 border-t border-border/40">
+        {platformStats.map((stat) => (
+          <div key={stat.id} className="flex items-center gap-2">
+            {stat.image ? (
+              <img
+                src={stat.image}
+                alt=""
+                className="w-6 h-6 rounded-full object-cover"
+              />
+            ) : (
+              <div className="w-6 h-6 rounded-full bg-foreground text-card text-[10px] font-semibold flex items-center justify-center">
+                {stat.icon}
+              </div>
+            )}
+            <span className="text-sm font-semibold text-foreground tabular-nums">{stat.amount}</span>
+            <span className="text-xs text-muted-foreground tabular-nums">{stat.percentage}</span>
+          </div>
+        ))}
+        <button className="ml-auto px-4 py-1.5 bg-foreground text-card rounded-lg text-xs font-medium hover:bg-foreground/90 transition-colors">
+          Details
+        </button>
+      </div>  */}
               <PlatformBreakdown />
               <PlatformChart />
             </div>

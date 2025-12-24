@@ -149,7 +149,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="w-56 h-screen bg-sidebar border-r border-sidebar-border flex flex-shrink-0">
+    <aside className="w-56 h-screen bg-sidebar   flex flex-shrink-0">
       {/* Icon Rail */}
       <div className="w-12 flex flex-col items-center py-3 border-r border-sidebar-border/60">
         {/* Logo */}

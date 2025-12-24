@@ -10,7 +10,7 @@
     --spacing-unit: 8px;
     
     /* Background & Surface */
-    --background: 40 12% 96%;
+    --background:  0 0% 100%;
     --foreground: 220 20% 12%;
 
     --card: 0 0% 100%;
@@ -48,7 +48,7 @@
     --radius-xs: 6px;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 100%;
+    --sidebar-background:40 12% 96%;
     --sidebar-foreground: 220 8% 50%;
     --sidebar-primary: 350 75% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
