@@ -378,7 +378,7 @@ export const Sales = () => (
                     </div>
                   </div>
                   <div className="absolute  left-0 right-0 transform translate-x-1/2 -bottom-2">
-                    <div className="w-6 h-6 rounded-lg bg-pink-500 flex items-center justify-center shadow-md">
+                    <div className="w-6 h-6 rounded-lg bg-pink-200 flex items-center justify-center shadow-md">
                       <img
                         src="/dribble.png"
                         alt="Dribbble"
@@ -387,10 +387,10 @@ export const Sales = () => (
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-2/3 right-0 transform translate-x-1/2">
-                    <div className="w-6 h-6 rounded-lg bg-pink-400 flex items-center justify-center shadow-md">
+                    <div className="w-6 h-6 rounded-lg  flex items-center bg-pink-200 justify-center shadow-md">
                       <img
                         src="/instagram.png"
-                        alt="Dribbble"
+                        alt="instagram"
                         className="w-4 h-4"
                       />
                     </div>
