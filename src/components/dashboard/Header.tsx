@@ -25,7 +25,7 @@ export const Header = () => {
         <div className="flex justify-center items-center bg-background gap-2 rounded-full p-1"> <Menu className="w-4 h-4 text-muted-foreground" />
         <div className="w-7 h-7 rounded-full overflow-hidden">
           <img
-            src="/public/anirudh.webp"
+            src="/anirudh.webp"
             alt="User avatar"
             className="w-full h-full object-cover"
           />
