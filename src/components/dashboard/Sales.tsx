@@ -76,9 +76,9 @@ const platformsData = [
 const weeklyData = ["W 1", "W 3", "W 5", "W 7", "W 9", "W 11"];
 
 export const Sales = () => (
-  <div className="rounded-3xl shadow-sm  ">
+  <div className="rounded-3xl shadow-sm ">
     {/* Header Row */}
-    <div className="grid grid-cols-6 gap-4 text-xs text-gray-400 mb-3 ">
+    <div className="grid grid-cols-6 gap-2 sm:gap-4 text-xs text-gray-400 mb-3 min-w-[500px]">
       <span>Sales</span>
       <span>Revenue</span>
       <span>Leads</span>
@@ -91,7 +91,7 @@ export const Sales = () => (
     {salesData.map((person) => (
       <div
         key={person.id}
-        className=" "
+        className="min-w-[500px]"
         style={
           person.white
             ? {}
@@ -102,54 +102,54 @@ export const Sales = () => (
         }
       >
         <div
-          className={`grid text-xs grid-cols-6 gap-4  items-center py-1 rounded-full   ${
+          className={`grid text-xs grid-cols-6 gap-2 sm:gap-4 items-center py-1 rounded-full ${
             person.shadow ? "shadow-lg" : ""
           }`}
         >
           {/* Avatar & Name */}
-          <div className="flex  items-center  gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             <div
-              className={`w-5 h-5 min-w-6 min-h-6 flex-shrink-0 rounded-full ${person.avatarBg} overflow-hidden flex items-center justify-center `}
+              className={`w-5 h-5 min-w-5 min-h-5 sm:min-w-6 sm:min-h-6 flex-shrink-0 rounded-full ${person.avatarBg} overflow-hidden flex items-center justify-center`}
             >
               <img
                 src={person.avatar}
                 alt={person.name}
-                className="w-full h-full  object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-xs  font-medium text-gray-800">
+            <span className="text-[10px] sm:text-xs font-medium text-gray-800 truncate">
               {person.name}
             </span>
           </div>
 
           {/* Revenue */}
-          <span className="text-xs font-medium text-gray-800">
+          <span className="text-[10px] sm:text-xs font-medium text-gray-800">
             {person.revenue}
           </span>
 
           {/* Leads */}
-          <div className="flex items-center gap-2">
-            <span
-              className={` rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center`}
-            >
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="rounded-xl bg-black px-1.5 sm:px-2 text-white text-[10px] sm:text-xs font-semibold flex items-center justify-center">
               {person.id === 1 ? 41 : 54}
             </span>
-            <span className="text-xs bg-gray-200 rounded-xl px-1 text-gray-600">
+            <span className="text-[10px] sm:text-xs bg-gray-200 rounded-xl px-1 text-gray-600">
               {person.leads}
             </span>
           </div>
 
           {/* KPI */}
-          <span className="text-xs text-gray-600">{person.kpi}</span>
+          <span className="text-[10px] sm:text-xs text-gray-600">
+            {person.kpi}
+          </span>
           {/* W/L */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-600">{person.winLoss}</span>
-            <span
-              className={` rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center`}
-            >
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-[10px] sm:text-xs text-gray-600">
+              {person.winLoss}
+            </span>
+            <span className="rounded-xl bg-black px-1.5 sm:px-2 text-white text-[10px] sm:text-xs font-semibold flex items-center justify-center">
               {person.wins}
             </span>
-            <span className="text-xs rounded-xl bg-gray-200 px-2 text-gray-600">
+            <span className="text-[10px] sm:text-xs rounded-xl bg-gray-200 px-1.5 sm:px-2 text-gray-600">
               {person.losses}
             </span>
           </div>
@@ -166,38 +166,38 @@ export const Sales = () => (
 
         {/* Expanded Content for Mikasa */}
         {person.expanded && (
-          <div className="mt-2 mb-4 ">
+          <div className="mt-2 mb-4">
             {/* Tags */}
-            <div className="flex gap-2 mb-4 px-2">
-              <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
+            <div className="flex gap-2 mb-4 px-2 flex-wrap">
+              <span className="px-2 sm:px-3 py-1 sm:py-1.5 bg-white rounded-full text-[10px] sm:text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
                 Top sales 💪
               </span>
-              <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
+              <span className="px-2 sm:px-3 py-1 sm:py-1.5 bg-white rounded-full text-[10px] sm:text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
                 Sales streak 🔥
               </span>
-              <span className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
+              <span className="px-2 sm:px-3 py-1 sm:py-1.5 bg-white rounded-full text-[10px] sm:text-xs font-medium text-gray-700 shadow-sm border border-gray-100">
                 Top review 👍
               </span>
             </div>
 
             {/* Work with platforms */}
             <div className="px-2">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-medium text-gray-800">
+              <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+                <span className="text-[10px] sm:text-xs font-medium text-gray-800">
                   Work with platforms
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="flex items-center gap-1 px-2 py-1 bg-pink-600 text-white rounded-lg text-xs font-medium">
+                  <span className="flex items-center gap-1 px-2 py-1 bg-pink-600 text-white rounded-lg text-[10px] sm:text-xs font-medium">
                     <ChevronsUp className="w-3 h-3" />3
                   </span>
-                  <span className="text-xs font-semibold rounded-xl p-1 text-white bg-pink-600">
+                  <span className="text-[10px] sm:text-xs font-semibold rounded-xl p-1 text-white bg-pink-600">
                     $156,841
                   </span>
                 </div>
               </div>
 
               {/* Platform Cards */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-4">
                 {
                   // drible card
                 }
@@ -406,40 +406,44 @@ export const Sales = () => (
     ))}
 
     {/* Bottom Row - Eren */}
-    <div className="grid grid-cols-6 gap-4 items-center py-2 px-2 shadow-lg rounded-2xl border" >
+    <div className="grid grid-cols-6 gap-2 sm:gap-4 items-center py-2 px-2 shadow-lg rounded-2xl border min-w-[500px]">
       {/* Avatar & Name */}
-      <div className="flex items-center gap-2">
-        <div className="w-6 h-6 min-w-6 min-h-6 flex-shrink-0 rounded-full bg-orange-100 overflow-hidden flex items-center justify-center">
+      <div className="flex items-center gap-1 sm:gap-2">
+        <div className="w-5 h-5 sm:w-6 sm:h-6 min-w-5 sm:min-w-6 min-h-5 sm:min-h-6 flex-shrink-0 rounded-full bg-orange-100 overflow-hidden flex items-center justify-center">
           <img
             src="https://i.pravatar.cc/32?img=10"
             alt="Eren Y."
             className="w-full h-full object-cover"
           />
         </div>
-        <span className="text-xs font-medium text-gray-800 text-nowrap ">Eren Y.</span>
+        <span className="text-[10px] sm:text-xs font-medium text-gray-800 text-nowrap">
+          Eren Y.
+        </span>
       </div>
 
       {/* Revenue */}
-      <span className="text-xs font-medium text-gray-800">$117,115</span>
+      <span className="text-[10px] sm:text-xs font-medium text-gray-800">
+        $117,115
+      </span>
 
       {/* Leads */}
-      <div className="flex items-center gap-2">
-        <span className="rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center">
+      <div className="flex items-center gap-1 sm:gap-2">
+        <span className="rounded-xl bg-black px-1.5 sm:px-2 text-white text-[10px] sm:text-xs font-semibold flex items-center justify-center">
           22
         </span>
-        <span className="text-xs text-gray-600">84</span>
+        <span className="text-[10px] sm:text-xs text-gray-600">84</span>
       </div>
 
       {/* KPI */}
-      <span className="text-xs text-gray-600">0.79</span>
+      <span className="text-[10px] sm:text-xs text-gray-600">0.79</span>
 
       {/* W/L */}
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-600">32%</span>
-        <span className="rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center">
+      <div className="flex items-center gap-1 sm:gap-2">
+        <span className="text-[10px] sm:text-xs text-gray-600">32%</span>
+        <span className="rounded-xl bg-black px-1.5 sm:px-2 text-white text-[10px] sm:text-xs font-semibold flex items-center justify-center">
           7
         </span>
-        <span className="text-xs text-gray-600">15</span>
+        <span className="text-[10px] sm:text-xs text-gray-600">15</span>
       </div>
 
       {/* Empty */}

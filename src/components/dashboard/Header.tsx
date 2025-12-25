@@ -4,12 +4,19 @@ const avatars = [
   { id: 1, name: "Armin A.", image: "https://i.pravatar.cc/32?img=1" },
   { id: 2, name: "Eren Y.", image: "https://i.pravatar.cc/32?img=3" },
   { id: 3, name: "Mikasa A.", image: "https://i.pravatar.cc/32?img=5" },
-
 ];
 
-export const Header = () => {
+export const Header = ({ onMenuClick }: { onMenuClick?: () => void }) => {
   return (
-    <header className="h-14 bg-sidebar flex items-center justify-between gap-4">
+    <header className="h-14 bg-sidebar flex items-center justify-between gap-2 sm:gap-4 px-3 sm:px-0">
+      {/* Mobile menu button */}
+      <button
+        onClick={onMenuClick}
+        className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:bg-sidebar-accent/50 transition-colors"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
+
       {/* Search Bar */}
       <div className="relative flex-1 max-w-sm">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -22,15 +29,17 @@ export const Header = () => {
 
       {/* Right Section */}
       <div className="flex items-center gap-2">
-        <div className="flex justify-center items-center bg-background gap-2 rounded-full p-1"> <Menu className="w-4 h-4 text-muted-foreground" />
-        <div className="w-7 h-7 rounded-full overflow-hidden">
-          <img
-            src="/anirudh.webp"
-            alt="User avatar"
-            className="w-full h-full object-cover"
-          />
-        </div></div>
-       
+        <div className="flex justify-center items-center bg-background gap-2 rounded-full p-1">
+          <Menu className="w-4 h-4 text-muted-foreground hidden sm:block" />
+          <div className="w-7 h-7 rounded-full overflow-hidden">
+            <img
+              src="/anirudh.webp"
+              alt="User avatar"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
         <button className="w-9 h-9 rounded-full bg-pink-600 flex items-center justify-center text-primary-foreground shadow-sm hover:shadow transition-shadow">
           <Plus className="w-4 h-4" />
         </button>
@@ -41,9 +50,9 @@ export const Header = () => {
 
 export const SubHeader = () => {
   return (
-    <div className="px-5 py-3 rounded-t-3xl bg-background flex items-center justify-between">
+    <div className="px-3 sm:px-5 py-3 rounded-t-3xl bg-background flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
       {/* Team Avatars */}
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 flex-wrap">
         <button className="w-7 h-7 rounded-full border border-dashed border-border flex items-center justify-center text-muted-foreground hover:border-muted-foreground transition-colors">
           <Plus className="w-3.5 h-3.5" />
         </button>
@@ -52,22 +61,22 @@ export const SubHeader = () => {
             key={avatar.id}
             className="px-1.5 py-1 rounded-full border border-border/60 bg-card flex items-center gap-1.5 hover:bg-muted/50 transition-colors"
           >
-              <img
-                src={avatar.image}
-                alt={avatar.name}
-                className="w-5 h-5 rounded-full object-cover"
-              />
-            
-            <span className="text-xs text-foreground">{avatar.name}</span>
-          </button>
-          
-        ))}
-          <div className="w-7 h-7 rounded-full bg-background  border text-card text-[10px] font-medium flex items-center justify-center">
-                  <div className="w-5 h-5 rounded-full bg-foreground text-card text-[10px] font-medium flex items-center justify-center">
-                C
-              </div>
-              </div>
+            <img
+              src={avatar.image}
+              alt={avatar.name}
+              className="w-5 h-5 rounded-full object-cover"
+            />
 
+            <span className="text-xs text-foreground hidden sm:inline">
+              {avatar.name}
+            </span>
+          </button>
+        ))}
+        <div className="w-7 h-7 rounded-full bg-background border text-card text-[10px] font-medium flex items-center justify-center">
+          <div className="w-5 h-5 rounded-full bg-foreground text-card text-[10px] font-medium flex items-center justify-center">
+            C
+          </div>
+        </div>
       </div>
 
       {/* Actions */}

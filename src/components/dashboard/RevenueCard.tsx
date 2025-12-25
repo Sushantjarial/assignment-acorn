@@ -37,19 +37,21 @@ const platformStats = [
 
 export const RevenueCard = () => {
   return (
-    <div className=" rounded-xl mt-2 bg-background shadow-card justify-between gap-10 items-center flex  ">
+    <div className="rounded-xl mt-2 bg-background justify-between gap-4 xl:gap-10 items-start xl:items-center flex flex-col xl:flex-row">
       {/* Title Section */}
-      <div className="flex items-start justify-between mb-5">
+      <div className="flex items-start justify-between mb-3 xl:mb-5">
         <div>
-          <h2 className="text-sm font-semibold  text-foreground mb-1">Revenue</h2>
-          <div className="flex items-baseline gap-1">
-            <span className="text-[32px] font-semibold text-foreground leading-none tabular-nums">
+          <h2 className="text-sm font-semibold text-foreground mb-1">
+            Revenue
+          </h2>
+          <div className="flex flex-wrap items-baseline gap-1">
+            <span className="text-2xl sm:text-[32px] font-semibold text-foreground leading-none tabular-nums">
               $528,976
             </span>
-            <span className="text-xl text-muted-foreground font-normal">
+            <span className="text-lg sm:text-xl text-muted-foreground font-normal">
               .82
             </span>
-            <div className="flex items-center gap-1.5 ml-2">
+            <div className="flex items-center gap-1.5 ml-2 flex-wrap">
               <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-pink-600 text-white text-xs font-medium">
                 <ArrowUp className="w-3 h-3" />
                 7.9%
@@ -59,28 +61,26 @@ export const RevenueCard = () => {
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-semibold text-muted-black">
+          <div className="flex items-center gap-1.5 mt-1.5 text-xs font-semibold text-muted-black flex-wrap">
             <span>vs prev. $501,641.73</span>
             <span className="text-muted-foreground/50">•</span>
             <span>Jun 1 - Aug 31, 2023</span>
             <ChevronDown className="w-3.5 h-3.5" />
           </div>
         </div>
-
-    
       </div>
 
       {/* Stats Grid - 8px gaps */}
-      <div className="flex  gap-4 mb-5  ">
+      <div className="flex flex-wrap gap-2 sm:gap-4 mb-3 xl:mb-5 w-full xl:w-auto">
         {/* Top Sales */}
-        <div className="flex flex-col border items-start bg-white rounded-xl px-2 py-3 shadow-lg">
+        <div className="flex flex-col border items-start bg-white rounded-xl px-2 py-3 shadow-lg flex-1 min-w-[120px] sm:min-w-[140px] sm:flex-none">
           <div className="text-[11px] text-muted-foreground mb-1">
             Top sales
           </div>
-          <div className="text-2xl font-semibold text-foreground tabular-nums leading-none">
+          <div className="text-xl sm:text-2xl font-semibold text-foreground tabular-nums leading-none">
             72
           </div>
-          <div className="flex items-center gap-16 mt-1.5">
+          <div className="flex items-center gap-2 sm:gap-16 mt-1.5">
             <div className="flex items-center gap-1.5">
               <img
                 src="https://i.pravatar.cc/20?img=5"
@@ -94,12 +94,12 @@ export const RevenueCard = () => {
         </div>
 
         {/* Best Deal */}
-        <div className="bg-black rounded-lg p-2.5 border border-border/40 shadow-md relative flex flex-col justify-center">
-          <div className="flex items-center justify-between gap-16 mb-1">
+        <div className="bg-black rounded-lg p-2.5 border border-border/40 shadow-md relative flex flex-col justify-center flex-1 min-w-[120px] sm:min-w-[140px] sm:flex-none">
+          <div className="flex items-center justify-between gap-2 sm:gap-16 mb-1">
             <span className="text-[11px] text-gray-400">Best deal</span>
             <Star className="w-3.5 h-3.5 text-gray-400" fill="currentColor" />
           </div>
-          <div className="text-xl font-semibold text-white tabular-nums leading-none mb-1.5">
+          <div className="text-lg sm:text-xl font-semibold text-white tabular-nums leading-none mb-1.5">
             $42,300
           </div>
           <div className="flex items-center gap-1.5">
@@ -109,7 +109,7 @@ export const RevenueCard = () => {
         </div>
 
         {/* Deals */}
-        <div className="bg-white rounded-lg p-2.5 border border-border/40 shadow-md flex justify-center items-center flex-col">
+        <div className="bg-white rounded-lg p-2.5 border border-border/40 shadow-md flex justify-center items-center flex-col flex-1 min-w-[80px] sm:min-w-[90px] sm:flex-none">
           <div className="text-[11px] text-muted-foreground mb-1">Deals</div>
           <span className="inline-block px-3 py-0.5 rounded-full bg-muted text-white text-sm font-semibold tabular-nums">
             268
@@ -121,8 +121,8 @@ export const RevenueCard = () => {
         </div>
 
         {/* Value */}
-        <div className="bg-white rounded-lg p-2.5 border-2 shadow-md flex flex-col justify-center items-center border-pink-600">
-          <div className="text-[11px]  text-muted-foreground mb-1">Value</div>
+        <div className="bg-white rounded-lg p-2.5 border-2 shadow-md flex flex-col justify-center items-center border-pink-600 flex-1 min-w-[80px] sm:min-w-[90px] sm:flex-none">
+          <div className="text-[11px] text-muted-foreground mb-1">Value</div>
           <span className="inline-block px-3 py-0.5 rounded-full bg-pink-600 text-white text-sm font-semibold tabular-nums">
             528k
           </span>
@@ -133,7 +133,7 @@ export const RevenueCard = () => {
         </div>
 
         {/* Win Rate */}
-        <div className="bg-white rounded-lg p-2.5 border border-border/40 shadow-md flex flex-col justify-center items-center">
+        <div className="bg-white rounded-lg p-2.5 border border-border/40 shadow-md flex flex-col justify-center items-center flex-1 min-w-[80px] sm:min-w-[90px] sm:flex-none">
           <div className="text-[11px] text-muted-foreground mb-1">Win rate</div>
           <span className="inline-block px-3 py-0.5 rounded-full bg-muted text-white text-sm font-semibold tabular-nums">
             44%

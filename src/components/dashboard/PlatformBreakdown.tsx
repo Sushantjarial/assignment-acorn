@@ -33,7 +33,7 @@ const platforms = [
 
 export const PlatformBreakdown = () => {
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       {/* Platform List */}
       <div className="bg-gray-100 rounded-2xl p-2 shadow-md border border-gray-100">
         <div className="flex items-center gap-2 mb-4">
@@ -50,10 +50,10 @@ export const PlatformBreakdown = () => {
           {platforms.map((platform) => (
             <div
               key={platform.name}
-              className="flex items-center gap-3 px-3 py-4 rounded-lg bg-white hover:bg-white/30 transition-colors"
+              className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-3 sm:py-4 rounded-lg bg-white hover:bg-white/30 transition-colors"
             >
               <img
-                className="w-5 h-5  flex items-center justify-center text-xs flex-shrink-0"
+                className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center text-xs flex-shrink-0"
                 alt={platform.name}
                 src={platform.icon}
               />
@@ -63,7 +63,7 @@ export const PlatformBreakdown = () => {
               <span className="ml-auto text-xs font-semibold text-gray-900 tabular-nums">
                 {platform.amount}
               </span>
-              <span className="text-xs text-gray-500 tabular-nums w-10 text-right">
+              <span className="text-xs text-gray-500 tabular-nums w-8 sm:w-10 text-right">
                 {platform.percentage}
               </span>
             </div>
@@ -72,7 +72,7 @@ export const PlatformBreakdown = () => {
       </div>
 
       {/* Referrer Category Chart */}
-      <div className="bg-gray-100 rounded-2xl p-4 shadow-md border border-gray-100">
+      <div className="bg-gray-100 rounded-2xl p-3 sm:p-4 shadow-md border border-gray-100">
         <div className="flex items-center justify-between mb-4">
           <button className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs text-gray-600 hover:bg-gray-100 transition-colors">
             <BarChart3 className="w-4 h-4" />
@@ -85,11 +85,11 @@ export const PlatformBreakdown = () => {
         </div>
 
         {/* Bar Chart Visualization */}
-        <div className="relative  h-40 flex  items-end justify-center gap-1 pb-2">
+        <div className="relative h-32 sm:h-40 flex items-end justify-center gap-0.5 sm:gap-1 pb-2">
           {/* Behance - Large bar */}
           <div className="flex bg-white rounded-xl flex-col items-center">
             <div
-              className="w-10 h-28 rounded-lg flex items-start justify-center pt-2"
+              className="w-7 sm:w-10 h-20 sm:h-28 rounded-lg flex items-start justify-center pt-2"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(45deg, #f5f5f5, #f5f5f5 4px, #e8e8e8 4px, #e8e8e8 8px)",
@@ -98,63 +98,55 @@ export const PlatformBreakdown = () => {
                 backgroundPosition: "top",
               }}
             >
-              <span className="font-bold text-blue-600 text-sm">Bē</span>
+              <span className="font-bold text-blue-600 text-xs sm:text-sm">
+                Bē
+              </span>
             </div>
           </div>
 
           {/* Dribbble - Tallest */}
           <div className="flex flex-col items-center">
-            <div
-              className="w-10 bg-white h-36 rounded-xl flex items-start justify-center pt-3"
-           
-            >
+            <div className="w-7 sm:w-10 bg-white h-28 sm:h-36 rounded-xl flex items-start justify-center pt-3">
               <img
                 src="/dribble.png"
                 alt="Dribbble"
-                className="w-5 h-5 object-contain"
+                className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               />
             </div>
           </div>
 
           {/* Google - Medium bar */}
           <div className="flex flex-col items-center">
-            <div
-              className="w-10 bg-white h-20 rounded-xl flex items-start justify-center pt-3"
-           
-            >
+            <div className="w-7 sm:w-10 bg-white h-14 sm:h-20 rounded-xl flex items-start justify-center pt-3">
               <img
                 src="/google.png"
                 alt="Google"
-                className="w-5 h-5 object-contain"
+                className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               />
             </div>
           </div>
 
           {/* Instagram - Short bar */}
           <div className="flex flex-col items-center">
-            <div
-              className="w-10 h-14 bg-white rounded-xl flex items-start justify-center pt-3"
-            
-            >
+            <div className="w-7 sm:w-10 h-10 sm:h-14 bg-white rounded-xl flex items-start justify-center pt-3">
               <img
                 src="/instagram.png"
                 alt="Instagram"
-                className="w-5 h-5 object-contain"
+                className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
               />
             </div>
           </div>
 
           {/*  - Shortest bar */}
-          <div className="flex border  rounded-xl flex-col items-center">
+          <div className="flex border rounded-xl flex-col items-center">
             <div
-              className="w-10 h-32 rounded-xl flex items-start justify-center pt-2"
+              className="w-7 sm:w-10 h-24 sm:h-32 rounded-xl flex items-start justify-center pt-2"
               style={{
                 background:
                   "repeating-linear-gradient(45deg, #f8f8f8, #f8f8f8 3px, #ebebeb 3px, #ebebeb 6px)",
               }}
             >
-            <ShoppingBag className="w-5 h-5 text-gray-400" />
-                
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
             </div>
           </div>
         </div>
