@@ -1,4 +1,4 @@
-import { ChevronUp } from "lucide-react";
+import { ChevronsUp, ChevronUp, ShoppingBag } from "lucide-react";
 
 const salesData = [
   {
@@ -16,7 +16,7 @@ const salesData = [
     losses: 29,
     expanded: false,
     shadow: true,
-    white:true
+    white: true,
   },
   {
     id: 2,
@@ -76,7 +76,7 @@ const platformsData = [
 const weeklyData = ["W 1", "W 3", "W 5", "W 7", "W 9", "W 11"];
 
 export const Sales = () => (
-  <div className="rounded-3xl shadow-sm  " >
+  <div className="rounded-3xl shadow-sm  ">
     {/* Header Row */}
     <div className="grid grid-cols-6 gap-4 text-xs text-gray-400 mb-3 ">
       <span>Sales</span>
@@ -89,11 +89,23 @@ export const Sales = () => (
 
     {/* Sales Rows */}
     {salesData.map((person) => (
-      <div key={person.id} className=" "
-      style={person.white ? {} : { background: 'linear-gradient(180deg, #F4F6FA 0%, #F4E9F4 15%, #fdf2f8 30%, #FBEAEA 60%)' }}
-      
+      <div
+        key={person.id}
+        className=" "
+        style={
+          person.white
+            ? {}
+            : {
+                background:
+                  "linear-gradient(180deg, #F4F6FA 0%, #F4E9F4 15%, #fdf2f8 30%, #FBEAEA 60%)",
+              }
+        }
       >
-        <div className={`grid text-xs grid-cols-6 gap-4  items-center py-1 rounded-full   ${person.shadow ? "shadow-lg" : ""}`}>
+        <div
+          className={`grid text-xs grid-cols-6 gap-4  items-center py-1 rounded-full   ${
+            person.shadow ? "shadow-lg" : ""
+          }`}
+        >
           {/* Avatar & Name */}
           <div className="flex  items-center  gap-2">
             <div
@@ -171,24 +183,26 @@ export const Sales = () => (
             {/* Work with platforms */}
             <div className="px-2">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-gray-800">
+                <span className="text-xs font-medium text-gray-800">
                   Work with platforms
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="flex items-center gap-1 px-2 py-1 bg-green-100 text-green-600 rounded-lg text-xs font-medium">
-                    <ChevronUp className="w-3 h-3" />3
+                  <span className="flex items-center gap-1 px-2 py-1 bg-pink-600 text-white rounded-lg text-xs font-medium">
+                    <ChevronsUp className="w-3 h-3" />3
                   </span>
-                  <span className="text-sm font-semibold text-pink-500">
+                  <span className="text-xs font-semibold rounded-xl p-1 text-white bg-pink-600">
                     $156,841
                   </span>
                 </div>
               </div>
 
               {/* Platform Cards */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                {/* Dribbble Card */}
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 col-span-1 row-span-2">
-                  <div className="flex items-center gap-2 mb-8">
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                {
+                  // drible card
+                }
+                <div className="bg-white  flex flex-col  justify-between rounded-2xl p-2 shadow-sm border border-gray-100  ">
+                  <div className="flex items-center gap-2 ">
                     <img
                       src="/dribble.png"
                       alt="Dribbble"
@@ -198,81 +212,86 @@ export const Sales = () => (
                       Dribbble
                     </span>
                   </div>
-                  <div className="mt-auto">
+                  <div className="">
                     <span className="text-3xl font-bold text-gray-900">
                       45.3%
                     </span>
-                    <span className="text-lg text-gray-400 ml-2">$71,048</span>
+                    <span className="text-3xl text-gray-400 ml-2">$71,048</span>
                   </div>
                 </div>
-
-                {/* Instagram Card */}
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-3 shadow-sm border border-orange-100">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center">
-                      <img
-                        src="/instagram.png"
-                        alt="Instagram"
-                        className="w-4 h-4"
-                      />
+                <div className="flex flex-col gap-1">
+                  {/* instagram */}
+                  <div className="grid grid-cols-2 gap-1">
+                    <div className="bg-white rounded-2xl p-2 shadow-sm flex flex-col justify-between">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-6 h-6 rounded-lg  flex items-center justify-center">
+                          <img
+                            src="/instagram.png"
+                            alt="Instagram"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs  font-medium text-gray-800">
+                          Instagram
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-xs font-bold text-gray-900">
+                          28.1%
+                        </span>
+                        <span className="text-xs text-gray-400">$44,072</span>
+                      </div>
                     </div>
-                    <span className="text-sm font-medium text-gray-800">
-                      Instagram
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-lg font-bold text-gray-900">
-                      28.1%
-                    </span>
-                    <span className="text-sm text-gray-400">$44,072</span>
-                  </div>
-                </div>
+                    <div className="flex flex-col gap-1">
+                      {/* Google */}
+                      <div
+                        className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex flex-col justify-between gap-1"
+                        style={{
+                          background:
+                            "repeating-linear-gradient(45deg, #f8f8f8, #f8f8f8 3px, #ebebeb 3px, #ebebeb 6px)",
+                        }}
+                      >
+                        <div className="flex items-center gap-1 mb-1">
+                          <img
+                            src="/google.png"
+                            alt="Google"
+                            className="w-4 h-4"
+                          />
+                          <span className="text-xs font-medium text-gray-800">
+                            Google
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-xs font-bold text-gray-900">
+                            14.1%
+                          </span>
+                          <span className="text-xs text-gray-400">$22,116</span>
+                        </div>
+                      </div>
 
-                {/* Google Card */}
-                <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
-                  <div className="flex items-center gap-2 mb-2">
-                    <img src="/google.png" alt="Google" className="w-5 h-5" />
-                    <span className="text-sm font-medium text-gray-800">
-                      Google
-                    </span>
+                      {/* Behance Card */}
+                      <div className="bg-white rounded-2xl p-1 shadow-sm border border-gray-100">
+                        <div className="flex items-center justify-center gap-1 ">
+                          <span className="text-xs font-bold">●▌</span>
+                          <span className="text-xs font-medium text-gray-800">
+                            5.4%
+                          </span>
+                          <span className="text-xs text-gray-400"> $8,469</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-lg font-bold text-gray-900">
-                      14.1%
-                    </span>
-                    <span className="text-sm text-gray-400">$22,116</span>
-                  </div>
-                </div>
 
-                {/* Behance Card */}
-                <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-bold">●▌</span>
-                    <span className="text-sm font-medium text-gray-800">
-                      5.4%
-                    </span>
-                    <span className="text-sm text-gray-400">$8,469</span>
-                  </div>
-                </div>
-
-                {/* Other Card */}
-                <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <svg
-                      className="w-4 h-4 text-gray-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="3" y="3" width="18" height="18" rx="2" />
-                      <path d="M9 12l2 2 4-4" />
-                    </svg>
-                    <span className="text-sm font-medium text-gray-800">
-                      Other
-                    </span>
-                    <span className="ml-auto text-sm text-gray-400">7.1%</span>
-                    <span className="text-sm text-gray-400">$11,135</span>
+                  {/* Other Card */}
+                  <div className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-2">
+                      <ShoppingBag className="w-4 h-4 " />
+                      <span className="text-xs font-medium text-gray-800">
+                        Other
+                      </span>
+                      <span className="ml-auto text-xs text-black">7.1%</span>
+                      <span className="text-xs text-gray-400">$11,135</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -298,6 +317,11 @@ export const Sales = () => (
 
                 {/* Chart Area */}
                 <div className="relative h-24 mb-2">
+                  <div className="flex justify-between text-xs text-gray-400 px-2">
+                    {weeklyData.map((week) => (
+                      <span key={week}>{week}</span>
+                    ))}
+                  </div>
                   {/* Chart lines */}
                   <svg
                     className="w-full h-full"
@@ -328,7 +352,7 @@ export const Sales = () => (
                   </svg>
 
                   {/* Progress bar */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 flex rounded-full overflow-hidden">
+                  <div className="absolute  bottom-0 left-0 right-0 h-1.5 flex rounded-full overflow-hidden">
                     <div
                       className="bg-red-400 h-full"
                       style={{ width: "25%" }}
@@ -348,13 +372,13 @@ export const Sales = () => (
                   </div>
 
                   {/* Platform markers */}
-                  <div className="absolute bottom-3 left-[25%] transform -translate-x-1/2">
-                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center shadow-md">
+                  <div className="absolute  left-0 right-0 transform translate-x-1/4 -bottom-2">
+                    <div className="w-6 h-6 rounded-lg bg-blue-600 flex items-center justify-center shadow-md">
                       <span className="text-white text-xs font-bold">Bē</span>
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-[50%] transform -translate-x-1/2">
-                    <div className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center shadow-md">
+                  <div className="absolute  left-0 right-0 transform translate-x-1/2 -bottom-2">
+                    <div className="w-6 h-6 rounded-lg bg-pink-500 flex items-center justify-center shadow-md">
                       <img
                         src="/dribble.png"
                         alt="Dribbble"
@@ -362,10 +386,10 @@ export const Sales = () => (
                       />
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-[75%] transform -translate-x-1/2">
-                    <div className="w-6 h-6 rounded-full bg-pink-400 flex items-center justify-center shadow-md">
+                  <div className="absolute -bottom-2 left-2/3 right-0 transform translate-x-1/2">
+                    <div className="w-6 h-6 rounded-lg bg-pink-400 flex items-center justify-center shadow-md">
                       <img
-                        src="/dribble.png"
+                        src="/instagram.png"
                         alt="Dribbble"
                         className="w-4 h-4"
                       />
@@ -374,11 +398,6 @@ export const Sales = () => (
                 </div>
 
                 {/* Week labels */}
-                <div className="flex justify-between text-xs text-gray-400 px-2">
-                  {weeklyData.map((week) => (
-                    <span key={week}>{week}</span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -387,40 +406,40 @@ export const Sales = () => (
     ))}
 
     {/* Bottom Row - Eren */}
-    <div className="grid grid-cols-6 gap-4 items-center py-3 px-2 border-t border-gray-100 mt-2">
+    <div className="grid grid-cols-6 gap-4 items-center py-2 px-2 shadow-lg rounded-2xl border" >
       {/* Avatar & Name */}
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-full bg-orange-100 overflow-hidden flex items-center justify-center">
+        <div className="w-6 h-6 min-w-6 min-h-6 flex-shrink-0 rounded-full bg-orange-100 overflow-hidden flex items-center justify-center">
           <img
-            src="/anirudh.webp"
+            src="https://i.pravatar.cc/32?img=10"
             alt="Eren Y."
             className="w-full h-full object-cover"
           />
         </div>
-        <span className="text-sm font-medium text-gray-800">Eren Y.</span>
+        <span className="text-xs font-medium text-gray-800 text-nowrap ">Eren Y.</span>
       </div>
 
       {/* Revenue */}
-      <span className="text-sm font-medium text-gray-800">$117,115</span>
+      <span className="text-xs font-medium text-gray-800">$117,115</span>
 
       {/* Leads */}
       <div className="flex items-center gap-2">
-        <span className="w-7 h-7 rounded-full bg-red-500 text-white text-xs font-semibold flex items-center justify-center">
+        <span className="rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center">
           22
         </span>
-        <span className="text-sm text-gray-600">84</span>
+        <span className="text-xs text-gray-600">84</span>
       </div>
 
       {/* KPI */}
-      <span className="text-sm text-gray-600">0.79</span>
+      <span className="text-xs text-gray-600">0.79</span>
 
       {/* W/L */}
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-600">32%</span>
-        <span className="w-6 h-6 rounded-full bg-blue-500 text-white text-xs font-semibold flex items-center justify-center">
+        <span className="text-xs text-gray-600">32%</span>
+        <span className="rounded-xl bg-black px-2 text-white text-xs font-semibold flex items-center justify-center">
           7
         </span>
-        <span className="text-sm text-gray-600">15</span>
+        <span className="text-xs text-gray-600">15</span>
       </div>
 
       {/* Empty */}

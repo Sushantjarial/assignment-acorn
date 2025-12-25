@@ -28,7 +28,11 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { id: "starred", label: "Starred", icon: <Star className="w-3.5 h-3.5" /> },
   { id: "recent", label: "Recent", icon: <Clock className="w-3.5 h-3.5" /> },
-  { id: "sales-list", label: "Sales list", icon: <List className="w-3.5 h-3.5" /> },
+  {
+    id: "sales-list",
+    label: "Sales list",
+    icon: <List className="w-3.5 h-3.5" />,
+  },
   { id: "goals", label: "Goals", icon: <Target className="w-3.5 h-3.5" /> },
   {
     id: "dashboard",
@@ -77,27 +81,53 @@ const SidebarItem = ({
   depth = 0,
   expandedItems,
   toggleItem,
+  isLast = false,
+  parentLines = [],
 }: {
   item: MenuItem;
   depth?: number;
   expandedItems: Set<string>;
   toggleItem: (id: string) => void;
+  isLast?: boolean;
+  parentLines?: boolean[];
 }) => {
   const hasChildren = item.children && item.children.length > 0;
   const isExpanded = expandedItems.has(item.id);
 
   return (
-    <div>
+    <div className="relative">
       <button
         onClick={() => hasChildren && toggleItem(item.id)}
         className={cn(
-          "w-full flex items-center gap-1.5 px-2 py-1 text-[11px] rounded-md transition-colors",
+          "w-full flex items-center gap-1.5 px-2 py-1 text-[11px] rounded-md transition-colors relative",
           "hover:bg-sidebar-accent/50 text-sidebar-foreground",
-          depth > 0 && "pl-5",
-          depth > 1 && "pl-8",
           item.isNew && "text-primary font-medium"
         )}
+        style={{ paddingLeft: depth > 0 ? `${depth * 16 + 8}px` : undefined }}
       >
+        {/* Tree lines for nested items */}
+        {depth > 0 && (
+          <>
+            {/* Vertical lines from parent levels */}
+
+            {/* Horizontal connector line */}
+            <span
+              className="absolute w-3 h-px bg-border"
+              style={{
+                left: `${depth * 16 - 8}px`,
+                top: "50%",
+              }}
+            />
+            {/* Vertical line segment for current item */}
+            <span
+              className={cn(
+                "absolute w-px bg-gray-300",
+                isLast ? "top-0 h-1/2" : "top-0 bottom-0"
+              )}
+              style={{ left: `${depth * 16 - 8}px` }}
+            />
+          </>
+        )}
         {hasChildren ? (
           isExpanded ? (
             <ChevronDown className="w-3 h-3 text-muted-foreground flex-shrink-0" />
@@ -115,14 +145,16 @@ const SidebarItem = ({
         )}
       </button>
       {hasChildren && isExpanded && (
-        <div className="mt-0.5">
-          {item.children?.map((child) => (
+        <div>
+          {item.children?.map((child, index) => (
             <SidebarItem
               key={child.id}
               item={child}
               depth={depth + 1}
               expandedItems={expandedItems}
               toggleItem={toggleItem}
+              isLast={index === item.children!.length - 1}
+              parentLines={[...parentLines, !isLast]}
             />
           ))}
         </div>
@@ -149,7 +181,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="w-56 h-screen bg-sidebar   flex flex-shrink-0">
+    <aside className="w-56  bg-sidebar   flex flex-shrink-0">
       {/* Icon Rail */}
       <div className="w-12 flex flex-col items-center py-3 border-r border-sidebar-border/60">
         {/* Logo */}
@@ -192,19 +224,23 @@ export const Sidebar = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-3 py-3 flex items-center gap-1.5">
-          <span className="font-medium text-foreground text-xs">Codename.com</span>
+          <span className="font-medium text-foreground text-xs">
+            Codename.com
+          </span>
           <ChevronDown className="w-3.5 h-3.5 text-muted-foreground ml-auto" />
         </div>
 
         {/* Menu Items */}
         <div className="flex-1 overflow-y-auto px-1.5 py-1">
           <div className="space-y-0.5">
-            {menuItems.map((item) => (
+            {menuItems.map((item, index) => (
               <SidebarItem
                 key={item.id}
                 item={item}
                 expandedItems={expandedItems}
                 toggleItem={toggleItem}
+                isLast={index === menuItems.length - 1}
+                parentLines={[]}
               />
             ))}
           </div>
@@ -218,12 +254,14 @@ export const Sidebar = () => {
               <Plus className="w-3.5 h-3.5 text-muted-foreground" />
             </div>
             <div className="space-y-0.5">
-              {reportsItems.map((item) => (
+              {reportsItems.map((item, index) => (
                 <SidebarItem
                   key={item.id}
                   item={item}
                   expandedItems={expandedItems}
                   toggleItem={toggleItem}
+                  isLast={index === reportsItems.length - 1}
+                  parentLines={[]}
                 />
               ))}
             </div>

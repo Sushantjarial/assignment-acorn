@@ -37,7 +37,7 @@ const platformStats = [
 
 export const RevenueCard = () => {
   return (
-    <div className=" rounded-xl mt-2 bg-background shadow-card justify-between gap-10 items-center flex w-max ">
+    <div className=" rounded-xl mt-2 bg-background shadow-card justify-between gap-10 items-center flex  ">
       {/* Title Section */}
       <div className="flex items-start justify-between mb-5">
         <div>

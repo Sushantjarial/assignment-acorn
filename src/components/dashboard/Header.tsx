@@ -41,7 +41,7 @@ export const Header = () => {
 
 export const SubHeader = () => {
   return (
-    <div className="px-5 py-3 rounded-tl-3xl bg-background flex items-center justify-between">
+    <div className="px-5 py-3 rounded-t-3xl bg-background flex items-center justify-between">
       {/* Team Avatars */}
       <div className="flex items-center gap-1.5">
         <button className="w-7 h-7 rounded-full border border-dashed border-border flex items-center justify-center text-muted-foreground hover:border-muted-foreground transition-colors">

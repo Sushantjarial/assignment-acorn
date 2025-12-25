@@ -10,7 +10,7 @@ import Expense from "@/components/dashboard/Expense";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen ">
+    <div className="flex min-h-screen bg-sidebar ">
       {/* Sidebar */}
       <Sidebar />
 
@@ -22,7 +22,7 @@ const Index = () => {
           <SubHeader />
         </div>
         {/* Page Title */}
-        <div className="px-5 pb-3 flex items-center justify-between mt-2 ">
+        <div className="px-5 bg-background pb-3 flex items-center justify-between  ">
           <h1 className="text-4xl font-medium text-muted-foreground">
             New report
           </h1>
@@ -45,14 +45,14 @@ const Index = () => {
         </div>
 
         {/* Dashboard Grid */}
-        <main className="flex-1  px-5 pb-5">
-          <div className="grid grid-cols-[1fr_320px] gap-4">
+        <main className="flex-1 bg-background rounded-b-3xl px-5 pb-5">
+          <div className="grid rounded-3xl gap-4">
             {/* Left Column */}
-            <div className="space-y-4">
+            <div className="space-y-4  ">
               <RevenueCard />
               <Expense />
               <div className="grid grid-cols-2 gap-6 ">
-                <div><PlatformBreakdown />
+                <div className="flex flex-col gap-2"><PlatformBreakdown />
                   <PlatformChart />
                 </div>
                 
