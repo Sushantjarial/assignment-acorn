@@ -76,9 +76,9 @@ const platformsData = [
 const weeklyData = ["W 1", "W 3", "W 5", "W 7", "W 9", "W 11"];
 
 export const Sales = () => (
-  <div className="rounded-3xl shadow-sm ">
+  <div className="rounded-3xl shadow-sm   ">
     {/* Header Row */}
-    <div className="grid grid-cols-6 gap-2 sm:gap-4 text-xs text-gray-400 mb-3 min-w-[500px]">
+    <div className="grid grid-cols-6 gap-2 sm:gap-4 text-xs text-gray-400 mb-3 ">
       <span>Sales</span>
       <span>Revenue</span>
       <span>Leads</span>
@@ -91,7 +91,7 @@ export const Sales = () => (
     {salesData.map((person) => (
       <div
         key={person.id}
-        className="min-w-[500px]"
+        className=""
         style={
           person.white
             ? {}
@@ -406,7 +406,7 @@ export const Sales = () => (
     ))}
 
     {/* Bottom Row - Eren */}
-    <div className="grid grid-cols-6 gap-2 sm:gap-4 items-center py-2 px-2 shadow-lg rounded-2xl border min-w-[500px]">
+    <div className="grid grid-cols-6 gap-2 sm:gap-4 items-center py-2 px-2 shadow-lg rounded-2xl border ">
       {/* Avatar & Name */}
       <div className="flex items-center gap-1 sm:gap-2">
         <div className="w-5 h-5 sm:w-6 sm:h-6 min-w-5 sm:min-w-6 min-h-5 sm:min-h-6 flex-shrink-0 rounded-full bg-orange-100 overflow-hidden flex items-center justify-center">
